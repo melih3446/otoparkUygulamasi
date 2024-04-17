@@ -1,110 +1,110 @@
-﻿#include <iostream>
+#include <iostream>
 #include<string>
 using namespace std;
 
 int main() {
-    double Süre = 0.0;
-    double ticariAracFiyat = 6.5;
-    double toplamTicariAracFiyat = 0.0;
-    double taksiFiyat = 5.0;
-    double minibusfiyat = 6.0;
-    double toplamtaksi = 0.0;
-    double toplamminibus = 0.0;
+    double Time = 0.0;
+    double ticariAracPrice = 6.5;
+    double totalTicariAracPrice = 0.0;
+    double taxiPrice = 5.0;
+    double minibusPrice = 6.0;
+    double totaltaxi = 0.0;
+    double totalminibus = 0.0;
     string aracTipi;
-    while(1)
-   
-    cout << "GOZUBUYUK OTOPARKA HOSGELDINIZ" << endl;
+    while (1) {
 
-    
-    cout << "otoparka girecek arac tipini giriniz(taksi,minibus,ticari arac):";
-    
-    getline(cin, aracTipi);
-    if (aracTipi == "taksi")
-
-    {
-        cout << "otoparkta bulunma suresi nedir:";
-        cin >> Süre;
+        cout << "WELCOME TO GOZUBUYUK CAR PARK" << endl;
 
 
-        if (Süre == 0)
+        cout << "Enter the type of vehicle that will enter the parking lot (taxi, minibus, commercial vehicle).:";
+
+        getline(cin, aracTipi);
+        if (aracTipi == "taxi")
+
         {
-            cout << "giris yapilmadigi icin bir ucret hesaplanamadı" << endl;
-        }
-        else if (Süre >= 1)
-        {
-            toplamtaksi = taksiFiyat;
-            for (int i = 2; i <= Süre; i++) {
+            cout << "What is the time limit for being in the parking lot?:";
+            cin >> Time;
 
 
-
-                taksiFiyat *= 1.20;
-                toplamtaksi += taksiFiyat;
-            }
-
-
-
-            cout << "otopark ucretiniz=" << toplamtaksi << " TL'dir" << endl;
-        }
-        else
-        {
-            cout << "gecerli karakter giriniz" << endl;
-        }
-
-
-    }
-    else if (aracTipi == "minibus")
-    {
-        cout << "otoparkta bulunma suresi nedir:";
-        cin >> Süre;
-        if (Süre == 0)
-        {
-            cout << "ucret hesaplanamadı" << endl;
-        }
-        else if (Süre >= 1)
-        {
-            toplamminibus = minibusfiyat;
-            for (int j = 2; j <= Süre; j++)
+            if (Time == 0)
             {
-                minibusfiyat *= 1.215;
-                toplamminibus += minibusfiyat;
+                cout << "A fee could not be calculated because you were not logged in." << endl;
             }
-            cout << "otopark ucretiniz=" << toplamminibus << " TL'dir" << endl;
-        }
-        else
-        {
-            cout << "gecersiz karakter" << endl;
-        }
-    }
-    
-    
-    else if (aracTipi == "ticari arac")
-
-    {
-        cout << "otoparkta bulunma suresi nedir:";
-        cin >> Süre;
-        if (Süre == 0)
-        {
-            cout << "ucret hesaplanmadı" << endl;
-        }
-        else if (Süre >= 1)
-        {
-            toplamTicariAracFiyat = ticariAracFiyat;
-            for (int i = 2; i <= Süre; i++)
+            else if (Time >= 1)
             {
-                ticariAracFiyat *= 1.25;
-                toplamTicariAracFiyat += ticariAracFiyat;
+                totaltaxi = taxiPrice;
+                for (int i = 2; i <= Time; i++) {
+
+
+
+                    taxiPrice *= 1.20;
+                    totaltaxi += taxiPrice;
+                }
+
+
+
+                cout << "your parking fee=" << totaltaxi << endl;
             }
-            cout << "otopark ucretiniz=" << toplamTicariAracFiyat << "TL'dir" << endl;
+            else
+            {
+                cout << "enter valid character" << endl;
+            }
+
+
+        }
+        else if (aracTipi == "minibus")
+        {
+            cout << "What is the time limit for being in the parking lot?:";
+            cin >> Time;
+            if (Time == 0)
+            {
+                cout << "fee could not be calculated" << endl;
+            }
+            else if (Time >= 1)
+            {
+                totalminibus = minibusPrice;
+                for (int j = 2; j <= Time; j++)
+                {
+                    minibusPrice *= 1.215;
+                    totalminibus += minibusPrice;
+                }
+                cout << "your parking fee=" << totalminibus << endl;
+            }
+            else
+            {
+                cout << "invalid character" << endl;
+            }
+        }
+
+
+        else if (aracTipi == "commercial vehicle")
+
+        {
+            cout << "What is the time limit for being in the parking lot?:";
+            cin >> Time;
+            if (Time == 0)
+            {
+                cout << "fee not calculated" << endl;
+            }
+            else if (Time >= 1)
+            {
+                totalTicariAracPrice = ticariAracPrice;
+                for (int i = 2; i <= Time; i++)
+                {
+                    ticariAracPrice *= 1.25;
+                    totalTicariAracPrice += ticariAracPrice;
+                }
+                cout << "your parking fee=" << totalTicariAracPrice << endl;
+            }
+            else
+            {
+                cout << "invalid character" << endl;
+            }
         }
         else
         {
-            cout << "gecersiz  karakter" << endl;
+            cout << "invalid vehicle type" << endl;
         }
     }
-    else
-    {
-        cout << "gecersiz arac tipi" << endl;
-    }
-   
 }
 
